@@ -1,0 +1,193 @@
+/* Google Font: Itim */
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+    font-family: 'Itim', cursive;
+    background: linear-gradient(135deg, #1a0033 0%, #000000 50%, #2d1b69 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease-in-out infinite;
+    color: #f8e8ff;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Background animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Screen handling */
+.screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Intro screen */
+#intro {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-5%);
+}
+
+/* Heart */
+.heart {
+    font-size: 15rem;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+    filter: drop-shadow(0 0 24px rgba(255,105,180,0.65));
+    margin-bottom: 18px;
+}
+
+/* Heart animations */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.heart.pop {
+    animation: pop 0.5s ease-out forwards;
+}
+
+/* Tap text */
+.tap-text {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    text-shadow: 0 0 6px rgba(255,255,255,0.25);
+}
+
+/* Content */
+.content {
+    text-align: center;
+    max-width: 90%;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 5.4rem;
+    margin-bottom: 20px;
+    color: #ffccdd;
+    text-shadow: 0 0 10px rgba(255,204,221,0.35);
+}
+
+.subtext {
+    font-size: 1.25rem;
+    margin: 12px 0;
+}
+
+.main-text p {
+    font-size: 1.15rem;
+    margin: 12px 0;
+    text-shadow: 0 0 5px rgba(248,232,255,0.25);
+}
+
+/* Signature */
+.signature s {
+    margin-top: 30px;
+    font-size: 1rem;
+    font-style: italic;
+    color: #d4a5ff;
+}
+
+/* Button */
+.next-btn {
+    margin-top: 40px;
+    padding: 12px 26px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    background: rgba(255,105,180,0.25);
+    border: 1px solid #ff69b4;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255,105,180,0.4);
+    transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+    background: rgba(255,105,180,0.45);
+    box-shadow: 0 0 22px rgba(255,105,180,0.7);
+}
+
+/* Floating background particles */
+.particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    animation: float 8s linear infinite;
+}
+
+.particle:nth-child(1) { top: 15%; left: 20%; }
+.particle:nth-child(2) { top: 35%; left: 70%; animation-delay: 2s; }
+.particle:nth-child(3) { top: 55%; left: 10%; animation-delay: 4s; }
+.particle:nth-child(4) { top: 75%; left: 80%; animation-delay: 6s; }
+.particle:nth-child(5) { top: 90%; left: 40%; animation-delay: 8s; }
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 0.3; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Floating hearts */
+.floating-hearts {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.heart-particle {
+    position: absolute;
+    font-size: 1.6rem;
+    opacity: 0.5;
+    animation: floatHeart 6s linear infinite;
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100vh); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .heart { font-size: 4.8rem; }
+}
+/* Floating hearts on New Year screen */
+.heart-particle:nth-child(1) { top: 90%; left: 10%; animation-delay: 0s; }
+.heart-particle:nth-child(2) { top: 95%; left: 30%; animation-delay: 1s; }
+.heart-particle:nth-child(3) { top: 100%; left: 50%; animation-delay: 2s; }
+.heart-particle:nth-child(4) { top: 92%; left: 70%; animation-delay: 3s; }
+.heart-particle:nth-child(5) { top: 98%; left: 85%; animation-delay: 4s; }
